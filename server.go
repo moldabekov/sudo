@@ -1,5 +1,8 @@
 // +build windows
 
+// Unix socket implementation to control execution flow
+// Server listens to localhost:0
+
 package main
 
 import (

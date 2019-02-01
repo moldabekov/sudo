@@ -1,5 +1,8 @@
 // +build windows
 
+// Unix socket implementation to control execution flow
+// Client to connect via localhost:0
+
 package main
 
 import (
@@ -13,8 +16,8 @@ import (
 )
 
 func client(addr string, args []string) int {
-	// connect to server
-	conn, err := net.Dial("tcp", addr)
+
+    conn, err := net.Dial("tcp", addr)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -53,7 +56,7 @@ func client(addr string, args []string) int {
 			}
 			switch m.Name {
 			case "close":
-				break in_loop
+				inw.Close()
 			case "ctrlc":
 				if runtime.GOOS == "windows" {
 					// windows doesn't support os.Interrupt

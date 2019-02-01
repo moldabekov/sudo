@@ -1,4 +1,10 @@
-# sudo for windows
+# sudo
+
+## Synopsis
+
+`sudo` for windows is made for elevating user rights on the fly. It will invoke UAC request. 
+The main purpose to get rid of mouse (to avoid shift+rightclick or Run as ...). Since runas cli commmand so much inconvenient to use. 
+
 
 ## Usage
 
@@ -8,7 +14,8 @@ C:\>sudo cmd /c dir
 
 Then, you'll see the UAC dialog.
 
-## Tutorials
+
+## Examples
 
 ### Display contents of file which can't access from you
 
@@ -42,14 +49,24 @@ sudo
 
 ## Installation
 
-```
-go get github.com/mattn/sudo
-```
+* From scratch:
+
+	You will need golang 1.10 or later.
+
+	1. `go get github.com/moldabekov/sudo`
+	2. `go build -ldflags"-s -w" .`
+
+
+* Binary:
+
+	Download from [release](https://github.com/moldabekov/sudo/releases) tab.
+
 
 ## License
 
 MIT
 
-## Author
 
-Yasuhiro Matsumoto (a.k.a. mattn)
+## Credits
+
+Yasuhiro Matsumoto (a.k.a. mattn) as a initial author.
